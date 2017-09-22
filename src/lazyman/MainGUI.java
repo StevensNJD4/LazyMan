@@ -764,10 +764,10 @@ public final class MainGUI extends javax.swing.JFrame {
 
         checkHosts(leagues[jTabbedPane1.getSelectedIndex()].getKeyURL(), leagues[jTabbedPane1.getSelectedIndex()]);
 
-//        if (!leagues[jTabbedPane1.getSelectedIndex()].isHostsFileEdited()) {
-//            MessageBox.show("You are not completely set up! Your hosts file needs to be edited for " + leagues[jTabbedPane1.getSelectedIndex()].getName() + ".", "Hosts file not edited", 2);
-//            return;
-//        }
+        if (!leagues[jTabbedPane1.getSelectedIndex()].isHostsFileEdited()) {
+            MessageBox.show("You are not completely set up! Your hosts file needs to be edited for " + leagues[jTabbedPane1.getSelectedIndex()].getName() + ".", "Hosts file not edited", 2);
+            return;
+        }
 
         if (streamlink.getLocation() == null || streamlink.getLocation().equals("")) {
             getSLLoc();
