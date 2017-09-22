@@ -142,4 +142,9 @@ public class League {
     public void setFavoriteTeam(String favoriteTeam) {
         this.favoriteTeam = favoriteTeam;
     }
+    
+    @Override
+    public String toString(){
+        return this.getName();
+    }
 }
