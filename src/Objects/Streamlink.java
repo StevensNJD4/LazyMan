@@ -34,7 +34,7 @@ public class Streamlink {
         }
     }
 
-    public Process run(Game g, GameWatchInfo gwi) {
+    public Process run(Game g, GameWatchInfo gwi, boolean fullscreen) {
         if (gwi.getUrl().equals("")) {
             MessageBox.show("Could not get the m3u8 URL. The server may be down.", "Error", 2);
             return null;
@@ -73,6 +73,9 @@ public class Streamlink {
                 if (System.getProperty("os.name").contains("Win")) {
                     arg = arg.replace("\"", "\\\"");
                 }
+            if(fullscreen){
+                arg += " --fullscreen";
+            }
             if (!Props.getVlcloc().toLowerCase().contains("mpv")) {
                 
                 args.add(Props.getVlcloc() + arg);
