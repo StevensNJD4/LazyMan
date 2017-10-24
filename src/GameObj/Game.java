@@ -94,5 +94,10 @@ public class Game extends GameStream {
     public void setDate(String date) {
         this.date = date;
     }
+    
+    @Override
+    public String toString(){
+        return this.getHomeTeam() + "," + this.getAwayTeam() + "," + this.getTime() + "," + this.getDate() + "," + this.getGameState() + "," + this.getTimeRemaining() + "," + this.getHomeTeamFull() + "," + this.getAwayTeamFull() + "," + this.id;
+    }
         
 }

@@ -14,6 +14,7 @@ import java.util.List;
 public class Streamlink {
 
     private String location = "";
+    private boolean fullscreen = false;
     public boolean record = false;
 
     /**
@@ -32,6 +33,13 @@ public class Streamlink {
         } else {
             this.location = location;
         }
+    }
+    /**
+     * Enables or disables fullscreen for vlc
+     * @param screen 
+     */
+    public void setFullscreen(boolean screen){
+        fullscreen = screen;
     }
 
     public Process run(Game g, GameWatchInfo gwi) {
@@ -72,6 +80,9 @@ public class Streamlink {
                 }
                 if (System.getProperty("os.name").contains("Win")) {
                     arg = arg.replace("\"", "\\\"");
+                }
+                if(fullscreen){
+                    arg += " --fullscreen";
                 }
             if (!Props.getVlcloc().toLowerCase().contains("mpv")) {
                 
