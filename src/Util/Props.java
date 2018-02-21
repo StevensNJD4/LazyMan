@@ -335,6 +335,46 @@ public class Props {
         }
         return "0";
     }
+    
+    public static void setHideConsole(String f) {
+        OutputStream output = null;
+        try {
+            output = new FileOutputStream(getConfigLoc());
+
+            PROP.setProperty("Console", f);
+            PROP.store(output, "");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            e.printStackTrace();
+        } finally {
+            if (output != null) {
+                try {
+                    output.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public static String getHideConsole() {
+        try {
+            InputStream input;
+            input = new FileInputStream(getConfigLoc());
+
+            PROP.load(input);
+            input.close();
+            if (PROP.containsKey("Console")) {
+                return PROP.getProperty("Console");
+            }
+            return "1";
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "1";
+    }
 
     public static String getSaveStreamLoc() {
         try {

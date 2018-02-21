@@ -12,7 +12,7 @@ public class Options extends javax.swing.JDialog {
 
     private Map<String, String> nhl, mlb;
     private String fcb;
-    private String viewConsole;
+    private String hideConsole;
     private boolean go;
 
     public Options(java.awt.Frame parent, boolean modal) {
@@ -26,6 +26,7 @@ public class Options extends javax.swing.JDialog {
         setMLBMap();
         
             fcb = Props.getPreferFrench();
+            hideConsole = Props.getHideConsole();
             String nhlTeam = Props.getNHLTeam();
             if (!nhlTeam.equals("")) {
                 for (Map.Entry<String, String> e : nhl.entrySet()) {
@@ -114,6 +115,7 @@ public class Options extends javax.swing.JDialog {
         mpLocBtn = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         MLBCB = new javax.swing.JComboBox<>();
+        consoleCheckBox = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridBagLayout());
@@ -147,7 +149,9 @@ public class Options extends javax.swing.JDialog {
                 frenchCheckBoxActionPerformed(evt);
             }
         });
-        getContentPane().add(frenchCheckBox, new java.awt.GridBagConstraints());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        getContentPane().add(frenchCheckBox, gridBagConstraints);
 
         applyBtn.setText("Apply");
         applyBtn.setEnabled(false);
@@ -351,6 +355,18 @@ public class Options extends javax.swing.JDialog {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         getContentPane().add(MLBCB, gridBagConstraints);
 
+        consoleCheckBox.setText("Hide Console");
+        consoleCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consoleCheckBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 9;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        getContentPane().add(consoleCheckBox, gridBagConstraints);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -387,7 +403,7 @@ public class Options extends javax.swing.JDialog {
             fcb = "0";
         enableApply();
     }//GEN-LAST:event_frenchCheckBoxActionPerformed
-
+    
     private void setSaveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setSaveBtnActionPerformed
         if (System.getProperty("os.name").toLowerCase().contains("mac")) {
             System.setProperty("apple.awt.fileDialogForDirectories", "true");
@@ -471,6 +487,14 @@ public class Options extends javax.swing.JDialog {
         enableApply();
     }//GEN-LAST:event_MLBCBActionPerformed
 
+    private void consoleCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consoleCheckBoxActionPerformed
+        if (consoleCheckBox.isSelected())
+            hideConsole = "1";
+        else
+            hideConsole = "0";
+        enableApply();
+    }//GEN-LAST:event_consoleCheckBoxActionPerformed
+
     private void setNHLMap() {
         nhl.put("None", "None");
         nhl.put("Ottawa Senators", "OTT");
@@ -545,6 +569,7 @@ public class Options extends javax.swing.JDialog {
     private javax.swing.JComboBox<String> NHLCB;
     private javax.swing.JButton applyBtn;
     private javax.swing.JButton closeBtn;
+    private javax.swing.JCheckBox consoleCheckBox;
     private javax.swing.JCheckBox frenchCheckBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

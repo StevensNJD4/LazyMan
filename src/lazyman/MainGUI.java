@@ -48,6 +48,11 @@ public final class MainGUI extends javax.swing.JFrame {
     public MainGUI() {
         streamlink = new Streamlink();
         initComponents();
+        
+        if (Props.getHideConsole().equals("1")) {
+            consolePanel.setVisible(false);
+        }
+        
         getVLCLocation();
         leagues = new League[jTabbedPane1.getTabCount()];
         for (int i = 0; i < jTabbedPane1.getTabCount(); i++) {
@@ -668,6 +673,13 @@ public final class MainGUI extends javax.swing.JFrame {
                 }
             }
         }
+        
+        if ("1".equals(Props.getHideConsole())) {
+            consolePanel.setVisible(false);
+        } else {
+            consolePanel.setVisible(true);
+        }
+
     }//GEN-LAST:event_preferencesMIActionPerformed
 
     private void changePasswordMIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changePasswordMIActionPerformed
