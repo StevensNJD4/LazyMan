@@ -20,9 +20,7 @@ public class Props {
         if (!System.getProperty("os.name").toLowerCase().contains("linux")) {
             loc = Paths.get(".").toAbsolutePath().normalize().toString() + System.getProperty("file.separator") + "config.properties";
         } else {
-            String test = System.getProperty("user.name");
-            loc = System.getProperty("user.home") + System.getProperty("file.separator") + ".config" + System.getProperty("file.separator") + "lazyman" + System.getProperty("file.separator") + "config.properties";
-            loc = System.getProperty("user.home") + "/.config/sdfgsdf/config.properties";
+            loc = System.getProperty("user.home") + "/.config/lazyman/config.properties";
         }
 
         f = new File(loc);
