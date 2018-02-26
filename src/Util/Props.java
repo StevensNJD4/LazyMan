@@ -20,7 +20,9 @@ public class Props {
         if (!System.getProperty("os.name").toLowerCase().contains("linux")) {
             loc = Paths.get(".").toAbsolutePath().normalize().toString() + System.getProperty("file.separator") + "config.properties";
         } else {
-            loc = new java.io.File(Props.class.getProtectionDomain().getCodeSource().getLocation().getPath()).getParent() + System.getProperty("file.separator") + "config.properties";
+            String test = System.getProperty("user.name");
+            loc = System.getProperty("user.home") + System.getProperty("file.separator") + ".config" + System.getProperty("file.separator") + "lazyman" + System.getProperty("file.separator") + "config.properties";
+            loc = System.getProperty("user.home") + "/.config/sdfgsdf/config.properties";
         }
 
         f = new File(loc);
@@ -40,7 +42,8 @@ public class Props {
         }
         
         if (!f.canWrite()) {
-            MessageBox.show("I can't write to the properties file. Please give the folder containing LazyMan write permissions.", "Can't write", 2);
+            String msg = String.format("I can't write to the properties file. Please give the folder containing LazyMan write permissions. (%s)", loc);
+            MessageBox.show(msg, "Can't write", 2);
             System.exit(-1);
         }
 
