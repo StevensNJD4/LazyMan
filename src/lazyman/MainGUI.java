@@ -1264,7 +1264,11 @@ public final class MainGUI extends javax.swing.JFrame {
         try {
             String base = "";
             try {
-                base = Paths.get(Props.class.getProtectionDomain().getCodeSource().getLocation().toURI()).toFile().getParent();
+                if (!System.getProperty("os.name").toLowerCase().contains("linux")) {
+                    base = Paths.get(Props.class.getProtectionDomain().getCodeSource().getLocation().toURI()).toFile().getParent();
+                } else {
+                    base = System.getProperty("user.home") + System.getProperty("file.separator") + ".config" + System.getProperty("file.separator") + "lazyman";
+                }
             } catch (URISyntaxException ex) {
                 ex.printStackTrace();
             }
