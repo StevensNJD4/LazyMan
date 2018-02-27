@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="video.lazyman.nhl.tv" name="LazyMan NHL.tv" version="1.1.2" provider-name="lazyman">
+  <requires>
+    <import addon="xbmc.python" version="2.14.0"/>
+    <import addon="script.module.requests" version="2.9.1"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="addon.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <summary lang="en">LazyMan NHL.tv</summary>
+    <description lang="en">http://reddit.com/r/lazyman</description>
+    <license>GNU General Public License, v2</license>
+    <language/>
+    <forum>http://reddit.com/r/lazyman</forum>
+    <assets>
+      <icon>resources/icon.png</icon>
+      <fanart>resources/fanart.jpg</fanart>
+    </assets>
+  </extension>
+</addon>

@@ -1,0 +1,6 @@
+v1.1.0 (2017-10-29)
+- Added NHL highlights!
+v1.0.9 (2017-10-29)
+-	Updated to reflect latest IP
+v1.0.8 (2017-10-13)
+-	Fixed that pesky quality setting bug

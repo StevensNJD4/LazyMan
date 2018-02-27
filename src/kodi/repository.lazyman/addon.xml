@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="repository.lazyman" name="LazyMan Repo" version="1.0.0" provider-name="reddit.com/r/lazyman">
+  <extension point="xbmc.addon.repository" name="LazyMan Repo">
+      <info compressed="true">http://raw.githubusercontent.com/actionbronson/LazyMan/master/src/kodi/repository/addons.xml.gz</info>
+      <checksum>http://raw.githubusercontent.com/actionbronson/LazyMan/master/src/kodi/repository/addons.xml.gz.md5</checksum>
+      <datadir zip="true">http://raw.githubusercontent.com/actionbronson/LazyMan/master/src/kodi/repository</datadir>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+      <summary>Install LazyMan Addons</summary>
+      <description>Download and install LazyMan addons</description>
+      <platform>all</platform>
+  </extension>
+</addon>

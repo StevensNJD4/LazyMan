@@ -1,0 +1,4 @@
+v1.0.3 (2017-01-03)
+-	Use the new IP address 
+v1.0.2 (2017-01-03)
+- Added quality setting
