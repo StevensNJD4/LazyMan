@@ -149,8 +149,11 @@
       <Connection code="Toolkit.getDefaultToolkit().getImage(MainGUI.class.getResource(&quot;/Logos/LM.png&quot;))" type="code"/>
     </Property>
     <Property name="locationByPlatform" type="boolean" value="true"/>
+    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[650, 250]"/>
+    </Property>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[648, 512]"/>
+      <Dimension value="[700, 512]"/>
     </Property>
   </Properties>
   <SyntheticProperties>
