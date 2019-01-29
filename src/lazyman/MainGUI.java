@@ -172,6 +172,7 @@ public final class MainGUI extends javax.swing.JFrame {
         setTitle("LazyMan");
         setIconImage(Toolkit.getDefaultToolkit().getImage(MainGUI.class.getResource("/Logos/LM.png")));
         setLocationByPlatform(true);
+        setMinimumSize(new java.awt.Dimension(648, 512));
         setPreferredSize(new java.awt.Dimension(648, 512));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
