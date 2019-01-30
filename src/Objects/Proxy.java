@@ -46,7 +46,15 @@ public class Proxy {
     }
 
     public void run() {
-        List<String> args = new ArrayList<>(Arrays.asList(new String[]{path + mitm, "-p", getPort() + "", "-d", "freegamez.ga", "-s", "mf.svc.nhl.com,playback.svcs.mlb.com,mlb-ws-mf.media.mlb.com"}));
+        List<String> args = new ArrayList<>(
+            Arrays.asList(
+                path + mitm,
+                "-p",
+                getPort() + "",
+                "-d", "freegamez.ga",
+                "-s", "mf.svc.nhl.com,playback.svcs.mlb.com,mlb-ws-mf.media.mlb.com"
+            )
+        );
         ProcessBuilder pb = new ProcessBuilder(args).inheritIO().redirectErrorStream(true);
         try {
             p = pb.start();

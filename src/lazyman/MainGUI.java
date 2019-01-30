@@ -891,7 +891,7 @@ public final class MainGUI extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         SwingWorker<Void, Void> w = waiting();
         w.execute();
-        InfiniteBar ub = new InfiniteBar(null, true, "Waiting for stream(s) to close then exiting...");
+        InfiniteBar ub = new InfiniteBar(null, true, "Waiting for proxy to close then exiting...");
         ub.setLocationRelativeTo(null);
         ub.setVisible(true);
     }//GEN-LAST:event_formWindowClosing
@@ -998,14 +998,10 @@ public final class MainGUI extends javax.swing.JFrame {
         worker = new SwingWorker<Void, Void>() {
             @Override
             protected Void doInBackground() throws Exception {
-                while (streamCnt > 0) {
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException ex) {
-                        p.kill();
-                    }
+                while (p.isRunning()) {
+                    p.kill();
                 }
-                p.kill();
+
                 System.exit(0);
                 return null;
             }
