@@ -29,6 +29,7 @@ import java.util.TimerTask;
 import javax.swing.JTextField;
 import javax.swing.SwingWorker;
 import java.util.Timer;
+import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 
 public final class MainGUI extends javax.swing.JFrame {
@@ -593,7 +594,9 @@ public final class MainGUI extends javax.swing.JFrame {
 
                 jMenuBar1.add(jMenu3);
 
+                donateMI.setForeground(new java.awt.Color(36, 96, 21));
                 donateMI.setText("Donate");
+                donateMI.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
                 donateMI.addMouseListener(new java.awt.event.MouseAdapter() {
                     public void mouseClicked(java.awt.event.MouseEvent evt) {
                         donateMIMouseClicked(evt);
@@ -639,7 +642,7 @@ public final class MainGUI extends javax.swing.JFrame {
         }
 
         if (leagues[leaguesTabbedPane.getSelectedIndex()].getGwi().getUrl().endsWith("n/a")) {
-            MessageBox.show("The stream has expired. Ask StevensNJD4 to make it available.", "Not Available", 0);
+            MessageBox.show("The stream has expired. Please post the game in the Missing Games thread.", "Not Available", 0);
             jProgressBar1.setIndeterminate(false);
             return;
         }
@@ -797,7 +800,7 @@ public final class MainGUI extends javax.swing.JFrame {
         }
 
         if (leagues[leaguesTabbedPane.getSelectedIndex()].getGames() != null) {
-            setRow(leagues[leaguesTabbedPane.getSelectedIndex()].getSelectedGame(), leaguesTabbedPane.getSelectedIndex());
+            leagues[leaguesTabbedPane.getSelectedIndex()].setSelectedGame(setRow(leagues[leaguesTabbedPane.getSelectedIndex()].getSelectedGame(), leaguesTabbedPane.getSelectedIndex()));
             leagues[leaguesTabbedPane.getSelectedIndex()].getGwi().setDate(leagues[leaguesTabbedPane.getSelectedIndex()].getDate());
         } else {
             feedCB.removeAllItems();
@@ -892,6 +895,7 @@ public final class MainGUI extends javax.swing.JFrame {
         SwingWorker<Void, Void> w = waiting();
         w.execute();
         InfiniteBar ub = new InfiniteBar(null, true, "Waiting for stream(s) to close then exiting...");
+        ub.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         ub.setLocationRelativeTo(null);
         ub.setVisible(true);
     }//GEN-LAST:event_formWindowClosing
@@ -1139,7 +1143,7 @@ public final class MainGUI extends javax.swing.JFrame {
         } else if (leaguesTabbedPane.getTitleAt(lg).equals(leagues[leaguesTabbedPane.getSelectedIndex()].getName())) {
             leagues[lg].getTable().setRowSelectionInterval(leagues[lg].getSelectedGame(), leagues[lg].getSelectedGame());
         }
-
+        
         return row;
     }
 
@@ -1248,7 +1252,7 @@ public final class MainGUI extends javax.swing.JFrame {
             @Override
             protected Void doInBackground() {
                 if (!p.isReady()) {
-                    MessageBox.show("Could not start proxy.", "Proxy not running", 2);
+                    MessageBox.show("Could not start proxy.\nTry changing the port in Preferences.", "Proxy not running", 2);
                     jProgressBar1.setIndeterminate(false);
                     return null;
                 }
