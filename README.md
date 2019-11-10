@@ -1,6 +1,6 @@
 # LazyMan
 
-A simple program that lets you stream every NHL and MLB game from your favorite media player for free.
+A program that lets you stream every NHL and MLB game from any media player for free.
 
 ## Requirements
 
