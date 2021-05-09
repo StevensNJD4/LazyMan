@@ -1,0 +1,6 @@
+.idea
+.DS_Store
+config.properties
+mlbamproxy
+build/
+LazyMan.iml
