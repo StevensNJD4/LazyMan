@@ -42,7 +42,7 @@ public class Streamlink {
         String ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36";
         ProcessBuilder pb;
 
-        List<String> args = new ArrayList<>(Arrays.asList(new String[]{location, getURLFormat(gwi.getUrl(), gwi.getQuality().equals("best")), gwi.getQuality(), "--http-header", "User-Agent=" + ua, "--hls-segment-threads=4", "--https-proxy", "127.0.0.1:" + port}));
+        List<String> args = new ArrayList<>(Arrays.asList(new String[]{location, getURLFormat(gwi.getUrl(), gwi.getQuality().equals("best")), gwi.getQuality(), "--http-header", "User-Agent=" + ua, "--hls-segment-threads=4", "--https-proxy", "http://127.0.0.1:" + port}));
 
         if (record) {
             String saveLoc = Props.getSaveStreamLoc() + File.separator + gwi.getDate();
